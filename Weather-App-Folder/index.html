@@ -1,28 +1,56 @@
 <!DOCTYPE html>
+<!-- This tells the browser that this is an HTML5 document -->
 <html lang="en">
   <head>
+    <!-- Meta tags define page metadata -->
     <meta charset="UTF-8" />
+    <!-- Makes the page responsive to different screen sizes -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Page title displayed on the browser tab -->
     <title>Weather App</title>
+
+    <!-- Link to external CSS file for styling -->
     <link rel="stylesheet" href="./style.css" />
   </head>
 
   <body>
-    <!-- Background overlay -->
+    <!-- 
+      Background overlay 
+      This div will hold the background image for the city. 
+      Positioned behind the weather box using CSS z-index.
+    -->
     <div id="background-overlay"></div>
 
-    <!-- Weather app container -->
+    <!-- 
+      Weather app container 
+      This is the frosted glass box that holds all weather info and input fields.
+    -->
     <div id="weather-container">
+      
+      <!-- App heading -->
       <h2>Weather App</h2>
+
+      <!-- Input box for user to type a city -->
       <input type="text" id="city" placeholder="Enter City" />
+
+      <!-- Button that calls the getWeather() function in script.js when clicked -->
       <button onclick="getWeather()">Search</button>
 
+      <!-- Weather icon image (hidden by default, shown via JavaScript) -->
       <img id="weather-icon" alt="Weather Icon" />
+
+      <!-- Temperature will be displayed here by JavaScript -->
       <div id="temp-div"></div>
+
+      <!-- City name and weather description displayed here -->
       <div id="weather-info"></div>
+
+      <!-- Hourly forecast will be displayed here -->
       <div id="hourly-forecast"></div>
     </div>
 
+    <!-- Link to external JavaScript file -->
     <script src="./script.js"></script>
   </body>
 </html>

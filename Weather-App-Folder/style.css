@@ -1,121 +1,154 @@
-/* General page layout */
+/* -------------------------------
+   General page layout
+   ------------------------------- */
+
+/* The <body> sets up the main page styling */
 body {
-  background-color: #333;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  margin: 0;
-  overflow: hidden;
-  position: relative;
+  background-color: #333; /* dark grey background in case image isn't loaded */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* sets font style */
+  
+  /* Center the weather box both vertically and horizontally */
+  display: flex; 
+  align-items: center; /* vertical centering */
+  justify-content: center; /* horizontal centering */
+
+  height: 100vh; /* full height of the viewport */
+  margin: 0; /* remove default page margin */
+  overflow: hidden; /* prevent scrolling */
+  position: relative; /* allows absolute positioning of child elements */
 }
 
-/* Background image overlay */
+/* -------------------------------
+   Background image overlay
+   ------------------------------- */
 #background-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  filter: brightness(0.5); /* makes it grey/dimmed */
-  z-index: -1; /* pushes it behind everything else */
+  position: absolute; /* overlays the entire screen */
+  top: 0; /* start at top */
+  left: 0; /* start at left */
+  width: 100%; /* full width of page */
+  height: 100%; /* full height of page */
+  
+  background-size: cover; /* make image fill the area while keeping aspect ratio */
+  background-position: center; /* center the image */
+  filter: brightness(0.5); /* dim the image so text is readable */
+  
+  z-index: -1; /* push it behind all other content */
 }
 
-/* Frosted glass weather box */
+/* -------------------------------
+   Frosted glass weather box
+   ------------------------------- */
 #weather-container {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(12px);
-  max-width: 400px;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 8px 32px rgba(241, 241, 241, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  text-align: center;
-  color: black;
-  z-index: 10;
+  background: rgba(255, 255, 255, 0.2); /* semi-transparent white background */
+  backdrop-filter: blur(12px); /* blurry frosted glass effect */
+  
+  max-width: 400px; /* limit width so it doesn't stretch too much */
+  padding: 20px; /* space inside the box */
+  border-radius: 15px; /* rounded corners */
+  box-shadow: 0 8px 32px rgba(241, 241, 241, 0.1); /* soft shadow for depth */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* subtle border */
+  
+  text-align: center; /* center text inside the box */
+  color: black; /* default text color */
+  z-index: 10; /* keep it above the background */
 }
 
+/* Styling headers, labels, and paragraphs */
 h2, label, p {
-  color: #000000;
+  color: #000000; /* black text for readability */
   margin: 8px 0; /* small spacing between elements */
 }
 
-/* Input field styling */
+/* -------------------------------
+   Input field styling
+   ------------------------------- */
 input {
-  width: calc(100% - 16px);
-  padding: 8px;
-  box-sizing: border-box;
-  border-radius: 10px;
-  border: 1px solid white;
-  margin-top: 20px;
-  background: rgba(144, 238, 144, 0.4); /* light green, semi-transparent */
-  color: black; /* makes text easily readable */
-  font-weight: bold; /* optional for better visibility */
+  width: calc(100% - 16px); /* full width minus padding */
+  padding: 8px; /* space inside input box */
+  box-sizing: border-box; /* include padding in width calculation */
+  border-radius: 10px; /* rounded edges */
+  border: 1px solid white; /* white border for contrast */
+  margin-top: 20px; /* space from elements above */
+  
+  background: rgba(144, 238, 144, 0.4); /* semi-transparent light green */
+  color: black; /* text color */
+  font-weight: bold; /* make text stand out */
 }
 
-/* When input is focused (typing) */
+/* Input field when user is typing */
 input:focus {
-  outline: none; /* removes default outline */
+  outline: none; /* remove default browser outline */
   background: rgba(144, 238, 144, 0.6); /* slightly brighter green while typing */
-  border-color: #32cd32; /* optional, darker green border */
+  border-color: #32cd32; /* darker green border for focus */
 }
 
+/* -------------------------------
+   Button styling
+   ------------------------------- */
 button {
-  background: #8a4ab9;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  margin-top: 20px;
-  width: 100px;
-  font-size: 15px;
-  transition: 0.3s;
+  background: #8a4ab9; /* purple background */
+  color: white; /* white text */
+  padding: 10px; /* space inside button */
+  border: none; /* remove default border */
+  border-radius: 10px; /* rounded corners */
+  cursor: pointer; /* change cursor to pointer on hover */
+  margin-top: 20px; /* space from input above */
+  width: 100px; /* fixed width */
+  font-size: 15px; /* text size */
+  transition: 0.3s; /* smooth hover effect */
 }
 
+/* Hover effect for button */
 button:hover {
-  background: #8b48d7;
+  background: #8b48d7; /* slightly different purple when hovered */
 }
 
+/* -------------------------------
+   Temperature display
+   ------------------------------- */
 #temp-div {
-  font-size: 60px;
-  margin-top: -30px;
+  font-size: 60px; /* large temperature text */
+  margin-top: -30px; /* pull it slightly upwards */
 }
 
+/* General weather info */
 #weather-info {
-  font-size: 20px;
+  font-size: 20px; /* readable size for city and description */
 }
 
+/* Weather icon image */
 #weather-icon {
   width: 200px;
   height: 200px;
-  margin: 0 auto 10px;
-  display: none;
+  margin: 0 auto 10px; /* center icon and add space below */
+  display: none; /* hidden by default until JS shows it */
 }
 
+/* -------------------------------
+   Hourly forecast styling
+   ------------------------------- */
 #hourly-forecast {
-  margin-top: 50px;
-  overflow-x: auto;
-  white-space: nowrap;
-  display: flex;
-  justify-content: space-between;
+  margin-top: 50px; /* space above forecast */
+  overflow-x: auto; /* allow horizontal scrolling if needed */
+  white-space: nowrap; /* keep forecast items in a single line */
+  display: flex; /* flex layout for horizontal alignment */
+  justify-content: space-between; /* space items evenly */
 }
 
+/* Individual forecast items */
 .hourly-item {
-  flex: 0 0 auto;
-  width: 80px;
+  flex: 0 0 auto; /* do not stretch, keep fixed width */
+  width: 80px; /* fixed width per item */
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-right: 10px;
-  color: white;
+  flex-direction: column; /* stack hour, icon, temp vertically */
+  align-items: center; /* center content */
+  margin-right: 10px; /* space between items */
+  color: white; /* text color for readability on background */
 }
 
+/* Forecast icon styling */
 .hourly-item img {
   width: 30px;
   height: 30px;
-  margin-bottom: 5px;
+  margin-bottom: 5px; /* space below icon */
 }
